@@ -1,19 +1,17 @@
-<p>
-    Olá, {{ $name }}!
-</p>
-<p>
-    Seus hábitos são:
-    <ul>
-        @foreach($habits as $habit)
-            <li>{{ $habit }}</li>
-        @endforeach
-    </ul>
-</p>
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config('app.name') }}</title>
 
-@auth
-    <p>Tu estás logado!</p>
-@endauth
+    @vite('resources/css/app.css')
+</head>
+<body>
 
-@guest
-    <p>Tu não estás logado!</p>
-@endguest
+    <h1 class="text-3xl font-bold underline">
+        Bem-vindo ao {{ config('app.name') }}
+    </h1>
+    
+</body>
+</html>

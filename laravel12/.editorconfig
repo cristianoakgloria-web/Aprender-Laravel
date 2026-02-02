@@ -16,3 +16,6 @@ indent_size = 2
 
 [compose.yaml]
 indent_size = 4
+
+[*.{blade.php,scss,css,js}] /* para arquivos desses tipo tera um espaço de 2 */
+indent_size = 2
