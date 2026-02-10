@@ -8,3 +8,4 @@ Route::get('/', [SiteController::class, 'index']);
 
 // Rota de Login
 Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);

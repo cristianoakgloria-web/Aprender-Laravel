@@ -3,5 +3,11 @@
         <h1>
             Veja seus hábitos ganharem vida!
         </h1>
+
+        @auth
+            <p class="mt-4 text-xl">
+                Bem-vindo(a), {{ auth()->user()->name }}! Continue acompanhando seus hábitos e alcançando seus objetivos.
+            </p>
+        @endauth
     </main>
 </x-layout>
