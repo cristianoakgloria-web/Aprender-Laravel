@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -22,11 +23,20 @@ class LoginController extends Controller
         if(Auth::attempt($credentails)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
-        } else {
+            return redirect()->intended(route('site.dashboard'));
+        }
+
             return back()->withErrors([
                 'email' => 'Credenciais Inválidas',
             ]);
-        }
+    }
+
+    public function logout(Request $request): RedirectResponse{
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect(route('site.index'));
     }
 }
