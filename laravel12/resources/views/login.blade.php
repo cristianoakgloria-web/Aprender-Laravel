@@ -1,6 +1,6 @@
 <x-layout>
     <main class="py-10">
-        <section class="bg-white max-w-[600px] mx-auto p-10 border-2 mt-4">
+        <section class="bg-white max-w-[600px] mx-auto p-10 pb-6 border-2 mt-4">
             <h1 class="font-bold text-3xl mb-4">Faça Login</h1>
             <p>Insira os teus dados para acessar</p>
 
@@ -24,6 +24,7 @@
                 </div>
                 <button  type="submit" class="bg-white border-2 p-2">Entrar</button>
             </form>
+            <p class="text-center mt-4">Não tem conta? <a href="{{ route('site.register') }}" class="text-blue-500 underline hover:opacity-50 transition">Cadastre-se</a></p>
         </section>
     </main>
 </x-layout>

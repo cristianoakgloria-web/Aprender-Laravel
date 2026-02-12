@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 
@@ -18,3 +19,7 @@ Route::middleware('auth')->group(function () {
     //Logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');// Rota de logout
 });
+
+
+Route::get('/cadastro', [RegisterController::class, 'index'])->name('site.register');// Rota de cadastro
+Route::post('/cadastro', [RegisterController::class, 'store'])->name('auth.register');// Rota de cadastro
