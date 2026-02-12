@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -13,12 +14,9 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function authenticate(Request $request){
+    public function authenticate(LoginRequest $request){
         // Lógica de autenticação aqui
-        $credentails = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+        $credentails = $request->only('email', 'password');
 
         if(Auth::attempt($credentails)){
             $request->session()->regenerate();
