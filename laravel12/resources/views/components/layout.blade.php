@@ -7,11 +7,13 @@
 
     @vite('resources/css/app.css')
 </head>
-<body class="bg-[#FFEDD6] py-10">
+<body class="bg-[#FFEDD6] min-h-screen flex flex-col">
     {{-- Header --}}
     <x-header />
 
+    <main class="flex-grow p-10">
     {{$slot}}
+    </main>
 
     {{-- Footer --}}
     <x-footer />
