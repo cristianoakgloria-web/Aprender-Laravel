@@ -42,4 +42,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // um usuario pode ter muitos hábitos
+    public function habits(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Habit::class, 'user_id');
+    }
+
+    // um usuário pode ter muitos registros de hábitos
+    public function habitLogs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(HabitLog::class, 'user_id');
+    }
 }
