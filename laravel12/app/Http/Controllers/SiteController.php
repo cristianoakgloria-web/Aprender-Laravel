@@ -3,22 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class SiteController extends Controller
 {
-    public function index()
+    public function index(): View
     {
-        $nome = "Ana";
-        $habitos = ["Ler", "Correr", "Viajar"];
-        
+                
         //return view('home', ['name' => $nome, 'habits' => $habitos]);
-
-        return view('home', compact('nome', 'habitos'));
+        return view('home');
     }
 
 
     public function dashboard()
     {
-        return view('dashboard');
+        $habits = auth()->user()->habits()->get();
+        return view('dashboard', compact('habits'));
     }
 }
