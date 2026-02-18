@@ -1,5 +1,5 @@
 <x-layout>
-    <main class="py-100">
+    <main class="py-10">
         <h1>
             Veja seus hábitos ganharem vida!
         </h1>
