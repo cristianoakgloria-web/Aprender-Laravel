@@ -1,10 +1,10 @@
 <x-layout>
+    <h1>
+        Criar novo Hábito
+    </h1>
     <main class='py-10'>
         <section class="bg-white max-w-[600px] mx-auto p-10 pb-6 border-2 mt-4">
-            <h1>
-                Criar novo Hábito
-            </h1>
-            <form action="{{route('habit.store')}}" method="POST">
+            <form action="{{route('habits.store')}}" method="POST">
                 @csrf
                 <div class="flex flex-col gap-2">
                     <label for="name">Nome do hábito:</label>

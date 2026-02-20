@@ -4,7 +4,7 @@
             Dashboard
         </h1>
 
-        <a href="{{route('habit.create')}}" class="p-2 border-2 bg-white font-bold block hover:bg-gray-100">Criar um novo hábito</a>
+        <a href="{{route('habits.create')}}" class="p-2 border-2 bg-white font-bold block hover:bg-gray-100">Criar um novo hábito</a>
 
         <div class="flex">
         @session('success')
@@ -24,10 +24,10 @@
                         <div class="flex gap-2 items-center">
                             <p class="font-bold text-xl">- {{ $habit->name }}</p>
                             <p>[{{ $habit->habitLogs->count() }}]</p>
-                            <a href="{{route('habit.edit', $habit->id)}}" class="bg-white p-2 hover:opacity-50">
+                            <a href="{{route('habits.edit', $habit->id)}}" class="bg-white p-2 hover:opacity-50">
                                 <x-icons.edit />
                             </a>
-                            <form action="{{ route('habit.destroy', $habit) }}" method="POST">
+                            <form action="{{ route('habits.destroy', $habit) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="bg-red-500 text-white p-2 hover:opacity-50">
@@ -39,7 +39,7 @@
                 @empty
                     <li class="pl-4"><p>Nenhum hábito criado.</p></li>
 
-                    <a href="{{ route('habit.create') }}" class="bg-white p-2 border-2">Criar hábito</a>
+                    <a href="{{ route('habits.create') }}" class="bg-white p-2 border-2">Criar hábito</a>
                 @endforelse
             </ul>
         </div>

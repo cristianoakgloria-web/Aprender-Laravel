@@ -9,13 +9,15 @@ use App\Http\Requests\HabitRequest;
 
 class HabitController extends Controller
 {
+    public function index()
+    {
+        $habits = auth()->user()->habits()->get();
+        return view('dashboard', compact('habits'));
+    }
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +34,7 @@ class HabitController extends Controller
     {
         $validated = $request->validated();
         auth()->user()->habits()->create($validated);
-        return redirect()->route('site.dashboard')->with('success', 'Hábito criado com sucesso!');
+        return redirect()->route('habits.index')->with('success', 'Hábito criado com sucesso!');
     }
 
     /**
@@ -48,6 +50,7 @@ class HabitController extends Controller
      */
     public function edit(Habit $habit)
     {
+        
         return view('habit.edit', compact('habit'));
     }
 
@@ -60,7 +63,7 @@ class HabitController extends Controller
             abort(403, 'Ação não autorizada.');
         }
         $habit->update($request->validated());
-        return redirect()->route('site.dashboard')->with('success', 'Hábito atualizado!');
+        return redirect()->route('habits.index')->with('success', 'Hábito atualizado!');
     }
 
     /**
@@ -72,6 +75,6 @@ class HabitController extends Controller
             abort(403, 'Ação não autorizada.');
         }
         $habit->delete();
-        return redirect()->route('site.dashboard')->with('success', 'Hábito deletado com sucesso!');
+        return redirect()->route('habits.index')->with('success', 'Hábito deletado com sucesso!');
     }
 }
