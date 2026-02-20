@@ -29,3 +29,5 @@ Route::post('/cadastro', [RegisterController::class, 'store'])->name('auth.regis
 Route::get('/dashboard/habitos/criar', [HabitController::class, 'create'])->name('habit.create');// Rota de hábitos
 Route::post('/dashboard/habitos/criar', [HabitController::class, 'store'])->name('habit.store');// Rota de criação de hábitos
 Route::delete('/dashboard/habitos/deletar/{habit}', [HabitController::class, 'destroy'])->name('habit.destroy');// Rota de deleção de hábitos
+Route::get('/dashboard/habitos/{habit}/editar', [HabitController::class, 'edit'])->name('habit.edit');// Rota de edição de hábitos
+Route::put('/dashboard/habitos/{habit}/editar', [HabitController::class, 'update'])->name('habit.update');// Rota de atualização de hábitos

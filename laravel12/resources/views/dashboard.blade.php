@@ -24,7 +24,9 @@
                         <div class="flex gap-2 items-center">
                             <p class="font-bold text-xl">- {{ $habit->name }}</p>
                             <p>[{{ $habit->habitLogs->count() }}]</p>
-
+                            <a href="{{route('habit.edit', $habit->id)}}" class="bg-white p-2 hover:opacity-50">
+                                <x-icons.edit />
+                            </a>
                             <form action="{{ route('habit.destroy', $habit) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
